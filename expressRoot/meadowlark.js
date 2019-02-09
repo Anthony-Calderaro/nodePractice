@@ -1,9 +1,16 @@
 // This is the project's entry point. The "app file"
+// To help with debugging, install Ayima's redirect path extension in chrome https://www.ayima.com/
 const express = require('express') // import express
 
 const app = express(); // declare an application from express
 
 app.set('port', process.env.POR || 4000); // set the port at whatever the environment variable is or 4000
+
+
+app.get('/', (req, res) => {
+  res.type('text/plain');
+  res.send('Meadowlark Travel');
+})
 
 // Custom 404 error page
 app.use((req, res) => { 
