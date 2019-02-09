@@ -4,6 +4,10 @@ const express = require('express') // import express
 
 const app = express(); // declare an application from express
 
+// set up handlebars from the package 'express-handlebars'
+const handlebars = require('express-handlebars').create({ defaultLayout: 'main' });
+app.engine('handlebars', handlebars.engine);
+app.set('view engine', 'handlebars');
 app.set('port', process.env.POR || 4000); // set the port at whatever the environment variable is or 4000
 
 // Add a default path to 'localhost:4000/'. 
