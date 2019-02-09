@@ -12,28 +12,24 @@ app.set('port', process.env.POR || 4000); // set the port at whatever the enviro
 
 // Add a default path to 'localhost:4000/'. 
 app.get('/', (req, res) => {
-  res.type('text/plain');
-  res.send('Meadowlark Travel');
+  res.render('home');
 })
 
 app.get('/about', (req, res) => {
-  res.type('text/plain');
-  res.send('About Meadowlark Travel');
+  res.render('about');
   
 })
 // Custom 404 error page - all other routes that are not error pages must come before this!
-app.use((req, res) => { // note that errors are app.USE not app.VERB. This is how express handles middleware
-  res.type('text/plain');
+app.use((req, res, next) => { // note that errors are app.USE not app.VERB. This is how express handles middleware
   res.status(404);
-  res.send('404 - Not Found');
+  res.render('404');
 });
 
 // Custom 500 error page
-app.use((req, res) => {
+app.use((err, req, res, next) => {
   console.error(err.stack);
-  res.type('text/plain');
   res.status(500);
-  res.send('500 - Server Error');
+  res.render('500');
 });
 
 // Start listening to the app on the port
