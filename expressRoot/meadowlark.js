@@ -10,6 +10,10 @@ app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
 app.set('port', process.env.POR || 4000); // set the port at whatever the environment variable is or 4000
 
+
+// Add static route path
+app.use(express.static(__dirname + '/public'));
+
 // Add a default path to 'localhost:4000/'. 
 app.get('/', (req, res) => {
   res.render('home');
