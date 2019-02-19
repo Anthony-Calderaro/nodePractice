@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/Anthony-Calderaro/nodePractice/issues"
   },
-  "homepage": "https://github.com/Anthony-Calderaro/nodePractice#readme"
+  "homepage": "https://github.com/Anthony-Calderaro/nodePractice#readme",
+  "dependencies": {
+    "pg": "^7.8.0"
+  }
 }
